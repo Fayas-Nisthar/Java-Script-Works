@@ -241,23 +241,17 @@ var product=[
     }
   ]
 
-
   function displayProducts(){
     let htmlData=``
     for(let p of product){
-      let title=p.title
-      let image=p.image
-      let description=p.description
-      let price=p.price
-
       htmlData+=`
         <div class="col-4">
             <div class="card" style="width: 18rem;">
-                <img src="${image}" class="card-img-top" alt="...">
+                <img src="${p.image}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">${title}</h5>
-                  <h5 class="card-title">$${price}</h5>
-                  <p class="card-text">${description}</p>
+                  <h5 class="card-title">${p.title}</h5>
+                  <h5 class="card-title">$${p.price}</h5>
+                  <p class="card-text">${p.description}</p>
                   <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
               </div>
