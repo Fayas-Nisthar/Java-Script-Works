@@ -45,7 +45,6 @@ var data={
     "cod": 200
   }
 
-
 function weatherDetails(){
   let currentdate=new Date()
   htmlData=`
