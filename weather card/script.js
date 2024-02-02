@@ -1,51 +1,8 @@
-var data={
-    "coord": {
-      "lon": 76.2167,
-      "lat": 10.5167
-    },
-    "weather": [
-      {
-        "id": 803,
-        "main": "Clouds",
-        "description": "broken clouds",
-        "icon": "04d"
-      }
-    ],
-    "base": "stations",
-    "main": {
-      "temp": 26.99,
-      "feels_like": 27.66,
-      "temp_min": 26.99,
-      "temp_max": 26.99,
-      "pressure": 1016,
-      "humidity": 54,
-      "sea_level": 1016,
-      "grnd_level": 1015
-    },
-    "visibility": 10000,
-    "wind": {
-      "speed": 1.32,
-      "deg": 51,
-      "gust": 2.63
-    },
-    "clouds": {
-      "all": 55
-    },
-    "dt": 1706673850,
-    "sys": {
-      "type": 1,
-      "id": 9211,
-      "country": "IN",
-      "sunrise": 1706663899,
-      "sunset": 1706705905
-    },
-    "timezone": 19800,
-    "id": 1254187,
-    "name": "Thrissur",
-    "cod": 200
-  }
 
-function weatherDetails(){
+fetch("https://api.openweathermap.org/data/2.5/weather?units=metric&q=kottayam&appid=8f9164d0bb1a347b51a7d0e25e247b6c").then(res=>res.json()).
+then(data=>weatherDetails(data))
+
+function weatherDetails(data){
   let currentdate=new Date()
   htmlData=`
   <div class="card">
@@ -77,5 +34,9 @@ function weatherDetails(){
   `
   document.querySelector("#result").innerHTML=htmlData
 }
-weatherDetails()
 
+function fetchDetails(){
+  let city=box.value
+  fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=8f9164d0bb1a347b51a7d0e25e247b6c`).then(res=>res.json()).
+  then(data=>weatherDetails(data))
+}
